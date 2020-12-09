@@ -17,27 +17,27 @@ describe('Ajax', () => {
   describe('echo', () => {
     const data = 'some data'
 
-    test('should return async value', async () => {
+    it('should return async value', async () => {
       const result = await Ajax.echo(data, 150)
 
       expect(result).toBe(data)
     })
 
-    test('should catch error', async () => {
+    it('should catch error', async () => {
       try {
       } catch (e) {
         expect(e.message).toBe('some error')
       }
     })
 
-    test('should return async value with promise', () => {
+    it('should return async value with promise', () => {
       // return the promise to everything works correctly
       return Ajax.echo(data, 150).then(result => {
         expect(result).toBe(data)
       })
     })
 
-    test('should catch error with promise', () => {
+    it('should catch error with promise', () => {
       // return the promise to everything works correctly
       return Ajax.echo(undefined, 150).catch(err => {
         expect(err).toBeDefined()
@@ -47,7 +47,7 @@ describe('Ajax', () => {
   })
 
   describe('get', () => {
-    test('should return data from backend', async () => {
+    it('should return data from backend', async () => {
       axios.get.mockReturnValue(response)
 
       const data = await Ajax.get()

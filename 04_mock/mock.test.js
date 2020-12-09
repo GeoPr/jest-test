@@ -10,16 +10,16 @@ describe('my map function', () => {
     map(array, fn)
   })
 
-  test('should call callback', () => {
+  it('should call callback', () => {
     expect(fn).toBeCalled()
   })
 
-  test('should call seven times', () => {
+  it('should call seven times', () => {
     expect(fn).toBeCalledTimes(5)
     expect(fn.mock.calls.length).toBe(5)
   })
 
-  test('should pow each element', () => {
+  it('should pow each element', () => {
     expect(fn.mock.results[0].value).toBe(1)
     expect(fn.mock.results[1].value).toBe(4)
     expect(fn.mock.results[2].value).toBe(9)
@@ -27,7 +27,7 @@ describe('my map function', () => {
     expect(fn.mock.results[4].value).toBe(64)
   })
 
-  test('the fn should work', () => {
+  it('the fn should work', () => {
 		fn
 			.mockReturnValueOnce(100)
 			.mockReturnValueOnce(200)

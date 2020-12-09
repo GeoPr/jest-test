@@ -38,15 +38,15 @@ describe('Lodash', () => {
   // before or after every call && before or after everything
 
   describe('compact', () => {
-    test('should be defined', () => {
+    it('should be defined', () => {
       expect(_.compact).toBeDefined()
       expect(_.compact).not.toBeUndefined()
     })
-    test('should be remove falsy values from an array', () => {
+    it('should be remove falsy values from an array', () => {
       expect(_.compact(array)).toEqual(resultArray)
       // toBe is only for primitives
     })
-    test('should not contain falsy values', () => {
+    it('should not contain falsy values', () => {
       expect(_.compact(array)).not.toContain(false)
       expect(_.compact(array)).not.toContain(null)
       expect(_.compact(array)).not.toContain('')
@@ -57,10 +57,10 @@ describe('Lodash', () => {
   })
 
   describe('groupBy', () => {
-    test('should be defined', () => {
+    it('should be defined', () => {
       expect(_.groupBy).toBeDefined()
     })
-    test('should group array items by Math.floor', () => {
+    it('should group array items by Math.floor', () => {
       const array = [6.1, 4.2, 6.3]
       const result = {
         4: [4.2],
@@ -70,7 +70,7 @@ describe('Lodash', () => {
       expect(_.groupBy(array, Math.floor)).toEqual(result)
     })
 
-    test('should group array items by length', () => {
+    it('should group array items by length', () => {
       const array = ['one', 'two', '12345']
       const result = {
         3: ['one', 'two'],
@@ -80,7 +80,7 @@ describe('Lodash', () => {
       expect(_.groupBy(array, 'length')).toEqual(result)
     })
 
-    test('should not return array', () => {
+    it('should not return array', () => {
       expect(_.groupBy([], Math.trunc)).not.toBeInstanceOf(Array)
     })
   })
